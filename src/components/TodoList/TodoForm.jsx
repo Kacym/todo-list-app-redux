@@ -6,22 +6,23 @@ import { useDispatch } from "react-redux";
 
 const TodoForm = () => {
   const dispatch = useDispatch();
+
   const [inputValue, setInputValue] = useState("");
 
   const getInputValue = (e) => {
     setInputValue(e.target.value);
-  }
+  };
 
   const addNewTodo = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const newTodo = {
       title: inputValue,
       completed: false,
-      id: Math.floor(Math.random() * 100000)
-    }
+      id: Math.floor(Math.random() * 100000),
+    };
 
     dispatch({ type: "ADD_TODO", payload: newTodo });
-  }
+  };
 
   return (
     <StyledTodoForm>

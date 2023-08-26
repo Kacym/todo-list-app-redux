@@ -4,16 +4,14 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { authStore, todoStore } from "./store";
+import { store } from "./store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={todoStore}>
-        <Provider store={authStore}>
+      <Provider store={store}>
           <App />
-        </Provider>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

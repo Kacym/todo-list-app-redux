@@ -7,10 +7,8 @@ import { styled } from 'styled-components'
 const TodoList = () => {
   const dispatch = useDispatch();
 
-  const { todos = [] } = useSelector((todo) => {
-    return todo
-  })
-
+  const { todos = [] } = useSelector((state) => state.todos);
+  
   const removeTodoHandler = (id) => {
     dispatch({ type: "REMOVE_TODO", payload: id })
   }
