@@ -1,13 +1,23 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 const Header = () => {
+
+  const dispatch = useDispatch();
+
+  const logOutHandler = () => {
+    dispatch({ type: "LOGOUT" })
+  }
+
+  const isLogged = useSelector((state) => state.auth.isLogged)
+
   return (
     <StyledHeader>
       <HeaderContainer>
         <h1>Logo</h1>
-        <LinkStyle to="/login">Log in</LinkStyle>
+        <LinkStyle to="/login" onClick={logOutHandler}>{isLogged ? "Log out" : "Login"}</LinkStyle>
       </HeaderContainer>
     </StyledHeader>
   );

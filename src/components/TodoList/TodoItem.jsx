@@ -3,12 +3,13 @@ import Button from "../UI/Button";
 import { styled } from "styled-components";
 import Input from "../UI/Input";
 
-const TodoItem = ({ removeTodoHandler, todo }) => {
+const TodoItem = ({ removeTodoHandler, todo, completed, onCompleted }) => {
+
   return (
-    <StyledTodoItem>
-      <h2>{todo.title}</h2>
+    <StyledTodoItem> 
+      <h2 style={{textDecoration: completed ? "line-through" : "none"}}>{todo.title}</h2>
       <TodoSettings>
-        <Input type="checkbox" />
+        <Input type="checkbox" onChange={() => onCompleted(todo.id)} checked={completed}/>
         <Button width="60%" title="remove" onClick={() => removeTodoHandler(todo.id)} />
       </TodoSettings>
     </StyledTodoItem>

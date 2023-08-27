@@ -48,6 +48,6 @@ const StyledForm = styled.form`
     width: 50%;
 
     padding: 20px;
-    border: solid;
+    box-shadow: 1px 1px 1px 1px;
 `
 export default LoginPage
